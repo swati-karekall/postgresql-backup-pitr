@@ -57,3 +57,19 @@ The `shop` database has an `orders` table with 100,000 rows. After a base backup
 - Why WAL archiving is needed for point-in-time recovery, and what `recovery.signal` and `restore_command` do
 - Why a named restore point is safer than a timestamp
 - Why the server moves to a new timeline after recovery
+
+  #screenshots
+  ### 1. WAL archiving working (`pg_stat_archiver`, failed_count = 0)
+![Archiver stats](screenshots/1-archiver-stats.png)
+
+### 2. Archived WAL files in `/u01/archives`
+![Archive listing](screenshots/2-archive-listing.png)
+
+### 3. The accidental DROP TABLE
+![Drop table](screenshots/3-drop-table.png)
+
+### 4. Recovery log: stopping at restore point `before_drop`
+![Recovery log](screenshots/4-recovery-log.png)
+
+### 5. Data recovered: 100500 rows
+![Row count](screenshots/5-count-100500.png)
